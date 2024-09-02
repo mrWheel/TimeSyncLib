@@ -1,12 +1,12 @@
 {
   "name": "TimeSyncLib",
   "keywords": "time, ntp",
-  "description": "A simple Tim synchronization Library",
+  "description": "A simple Time Synchronization Library",
   "repository": {
     "type": "git",
     "url": "https://github.com/mrWheel/TimeSyncLib"
   },
-  "version": "0.1.0",
+  "version": "1.0.0",
   "authors":
   [ 
     {
@@ -17,7 +17,7 @@
       "url": "https://aandewiel.nl"
     }
   ],
-  "include": ["src", "examples", "LICENSE.txt", "TimeSyncLib.h"],
+  "include": ["src", "examples", "TimeSyncLib.h"],
   "frameworks": "arduino",
   "platforms": "*",
   "build": {

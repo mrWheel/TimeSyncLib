@@ -124,7 +124,7 @@ bool TimeSync::getTheLocalTime(struct tm *info, uint32_t ms)
     {
       return true;
     }
-    delay(10);
+    delay(100);
   }
   return false;
 

@@ -22,9 +22,9 @@
 
 TimeSync timeSync;
 
-struct tm timeinfo;
-time_t    now;
-int status = WL_IDLE_STATUS;
+struct tm     timeinfo;
+time_t        now;
+int           status = WL_IDLE_STATUS;
 
 
 //---------------------------------------------------------------------
@@ -43,8 +43,6 @@ void setup()
   {
     Serial.print("Attempting to connect to WPA SSID: "); 
     Serial.println(ssid); // print SSID
-    // Connect to WPA/WPA2 network
-    //WiFi.begin(ssid, password); 
     delay(500);
   }
   Serial.println("Connected to the WiFi network");
@@ -57,15 +55,12 @@ void setup()
   timeSync.setup();
   timeSync.sync(100);
   time(&now);
-  //if (localtime(&now)->tm_year > 120)
   if (timeSync.isSynced())
   {
-    //timeSynced = true;
     Serial.println("Time synchronized with NTP Service");
   }
   else
   {
-    //timeSynced = false;
     Serial.println("Could not synchronize time with NTP Service");
   }
 
@@ -73,16 +68,17 @@ void setup()
   Serial.println("-------------------------------------------------------------------------------");
   if (!timeSync.getTheLocalTime(&timeinfo, 1000))
   {
-    Serial.println("Time       : Failed to obtain time!");
+    Serial.println("Time : Failed to obtain time!");
   }
   else
   {
-    Serial.printf( "Time       : %04d-%02d-%02d %02d:%02d:%02d\r\n", localtime(&now)->tm_year+1900
-                   , localtime(&now)->tm_mon+1
-                   , localtime(&now)->tm_mday
-                   , localtime(&now)->tm_hour
-                   , localtime(&now)->tm_min
-                   , localtime(&now)->tm_sec);
+    Serial.printf( "Time : %02d-%02d-%04d %02d:%02d:%02d\r\n"
+                            , localtime(&now)->tm_mday
+                            , localtime(&now)->tm_mon+1
+                            , localtime(&now)->tm_year+1900
+                            , localtime(&now)->tm_hour
+                            , localtime(&now)->tm_min
+                            , localtime(&now)->tm_sec);
   }
 
   timeSync.logTime();  
@@ -104,11 +100,11 @@ void loop()
     time(&now);
     if (!timeSync.getTheLocalTime(&timeinfo, 10000))
     {
-      Serial.println("Time       : Failed to obtain time!");
+      Serial.println("Time : Failed to obtain time!");
     }
     else
     {
-      Serial.printf( "Time       : %02d-%02d-%04d %02d:%02d:%02d\r\n"
+      Serial.printf( "Time : %02d-%02d-%04d %02d:%02d:%02d\r\n"
                                 , localtime(&now)->tm_mday
                                 , localtime(&now)->tm_mon+1
                                 , localtime(&now)->tm_year+1900
@@ -118,7 +114,7 @@ void loop()
     }
 
     timeSync.logTime();
-    delay(1000);
+    delay(2000);
 
 } // loop()
 
