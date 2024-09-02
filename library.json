@@ -1,0 +1,22 @@
+{
+  "name": "TimeSyncLib",
+  "keywords": "time, ntp",
+  "description": "A simple Time Library
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrWheel/TimeSyncLib.git"
+  },
+  "version": "0.1.0",
+  "authors": {
+    "name": "Willem Aandewiel",
+    "url": "https://aandewiel.nl"
+  },
+  "export": {
+    "include": ["src", "examples", "LICENSE.txt", "TimeSyncLib.h"]
+  },
+  "frameworks": "*",
+  "platforms": "*",
+  "build": {
+    "libArchive": false
+  }
+}
